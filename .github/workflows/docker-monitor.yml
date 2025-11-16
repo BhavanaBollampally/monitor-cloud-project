@@ -5,9 +5,12 @@ on:
     branches:
       - master
     paths:
-      - 'MonitorCloud/**'
+      - 'monitor.sh'
+      - 'log_monitor/**'
+      - 'Dockerfile_monitor'
       - 'Dockerfile_monitorcloud'
-      - '.github/workflows/docker-monitor.yml'
+      - '.github/workflows/*.yml'
+
 
 jobs:
   build:
@@ -30,7 +33,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: MonitorCloud/Dockerfile_monitorcloud
+          file: Dockerfile_monitorcloud
           push: true
           tags: |
             bhavanabollampally/monitorcloud:latest

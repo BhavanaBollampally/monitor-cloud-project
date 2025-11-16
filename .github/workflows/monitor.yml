@@ -5,8 +5,9 @@ on:
     branches:
       - master
     paths:
-      - 'MonitorCloud/**'
-      - '.github/workflows/docker-monitor.yml'
+      - 'monitor.sh'
+      - 'log_monitor/**'
+      - '.github/workflows/monitor.yml'
 
 jobs:
   run-monitor:
@@ -26,7 +27,6 @@ jobs:
 
       - name: Run monitor script
         run: |
-          cd MonitorCloud
           chmod +x monitor.sh
           ./monitor.sh
 
@@ -34,4 +34,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: monitor-logs
-          path: Monitor/log_monitor/*.log
+          path: log_monitor/*.log
