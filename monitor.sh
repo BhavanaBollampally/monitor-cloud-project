@@ -123,7 +123,7 @@ find "$LOG_DIR" -type f -mtime +"$RETENTION_DAYS" \
 -exec bash -c 'echo "[$(date +"%Y-%m-%d %H:%M:%S")] Deleted old log file: {}" >> "$1"' _ "$DEL_LOG_FILE" \; \
 -exec rm {} \;
 
-#Trigger cloud upload
+
 # Check if AWS CLI and credentials exist
 if command -v aws >/dev/null 2>&1 && aws sts get-caller-identity >/dev/null 2>&1; then
     echo "[INFO] AWS CLI + creds found. Uploading log to S3..."
