@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 #Author: Bhavana
-#Monitor Cloud:System monitor with logging and deletion of old files
- 
+#Monitor Cloud: System monitor with logging and deletion of old files
+#Main project-1 
 
 
 
