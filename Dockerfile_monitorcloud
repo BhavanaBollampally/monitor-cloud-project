@@ -10,12 +10,13 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
     && unzip awscliv2.zip \
     && ./aws/install
 
-# Copy script + log folder into container
-COPY MonitorCloud/monitor.sh .
-COPY MonitorCloud/log_monitor ./log_monitor
+# Copy script and log folder (Dockerfile is already inside MonitorCloud/)
+COPY monitor.sh .
+COPY log_monitor ./log_monitor
+
 RUN chmod +x monitor.sh
 
-# Create log directory
+# Ensure log directory exists
 RUN mkdir -p /app/log_monitor
 
 CMD ["./monitor.sh"]
