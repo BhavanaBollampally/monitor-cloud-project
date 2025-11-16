@@ -1,0 +1,16 @@
+FROM ubuntu:latest
+
+WORKDIR /app
+
+# Copy entire functions folder (including log_monitor)
+COPY MonitorCloud/ .
+
+# Ensure log directory exists
+RUN mkdir -p log_monitor
+
+# Make script executable
+RUN chmod +x monitor.sh
+
+# Run script on container start
+CMD ["./monitor.sh"]
+
